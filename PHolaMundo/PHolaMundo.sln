@@ -16,5 +16,10 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = PHolaMundo\PHolaMundo.csproj
+		Policies = $0
+		$0.VersionControlPolicy = $1
+		$1.CommitMessageStyle = $2
+		$2.Header = @Cabecera\n\n
+		$1.inheritsSet = Mono
 	EndGlobalSection
 EndGlobal
