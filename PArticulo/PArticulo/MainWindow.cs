@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
+using PArticulo;
+
 public partial class MainWindow: Gtk.Window
 {	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
@@ -43,5 +45,11 @@ public partial class MainWindow: Gtk.Window
 	{
 		ListStore listStore = (ListStore)treeView.Model;
 		listStore.Clear ();
+	}
+
+	protected void OnEditActionActivated (object sender, System.EventArgs e)
+	{
+		ArticuloView articuloView = new ArticuloView();
+		articuloView.Show ();
 	}
 }
