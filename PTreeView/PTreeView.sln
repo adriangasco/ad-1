@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTreeView", "PTreeView\PTreeView.csproj", "{5D100B81-2E4A-49DA-8436-1F26C80771DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D100B81-2E4A-49DA-8436-1F26C80771DB}.Debug|x86.ActiveCfg = Debug|x86
+		{5D100B81-2E4A-49DA-8436-1F26C80771DB}.Debug|x86.Build.0 = Debug|x86
+		{5D100B81-2E4A-49DA-8436-1F26C80771DB}.Release|x86.ActiveCfg = Release|x86
+		{5D100B81-2E4A-49DA-8436-1F26C80771DB}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = PTreeView\PTreeView.csproj
+	EndGlobalSection
+EndGlobal
