@@ -16,7 +16,10 @@ public partial class MainWindow: Gtk.Window
 		dbConnection.Open ();
 		
 		IDbCommand dbCommand = dbConnection.CreateCommand ();
-		dbCommand.CommandText = "select * from articulo";
+		dbCommand.CommandText = 
+			"select a.id, a.nombre, a.precio, c.nombre as categoria " +
+			"from articulo a left join categoria c " +
+			"on a.categoria = c.id";
 		
 		IDataReader dataReader = dbCommand.ExecuteReader ();
 		
