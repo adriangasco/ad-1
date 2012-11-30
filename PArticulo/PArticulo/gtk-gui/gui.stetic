@@ -112,7 +112,7 @@
             <property name="RowSpacing">6</property>
             <property name="ColumnSpacing">6</property>
             <child>
-              <widget class="Gtk.ComboBox" id="combobox1">
+              <widget class="Gtk.ComboBox" id="comboBoxCategoria">
                 <property name="MemberName" />
                 <property name="IsTextCombo">True</property>
                 <property name="Items" translatable="yes" />
@@ -213,7 +213,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.SpinButton" id="spinbutton1">
+              <widget class="Gtk.SpinButton" id="spinButtonPrecio">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Upper">1000000</property>

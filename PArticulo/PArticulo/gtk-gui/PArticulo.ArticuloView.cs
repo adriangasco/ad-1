@@ -9,12 +9,12 @@ namespace PArticulo
 		private global::Gtk.VBox vbox1;
 		private global::Gtk.Toolbar toolbar1;
 		private global::Gtk.Table table1;
-		private global::Gtk.ComboBox combobox1;
+		private global::Gtk.ComboBox comboBoxCategoria;
 		private global::Gtk.Entry entryNombre;
 		private global::Gtk.Label label1;
 		private global::Gtk.Label label2;
 		private global::Gtk.Label label3;
-		private global::Gtk.SpinButton spinbutton1;
+		private global::Gtk.SpinButton spinButtonPrecio;
 		
 		protected virtual void Build ()
 		{
@@ -50,10 +50,10 @@ namespace PArticulo
 			this.table1.RowSpacing = ((uint)(6));
 			this.table1.ColumnSpacing = ((uint)(6));
 			// Container child table1.Gtk.Table+TableChild
-			this.combobox1 = global::Gtk.ComboBox.NewText ();
-			this.combobox1.Name = "combobox1";
-			this.table1.Add (this.combobox1);
-			global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table1 [this.combobox1]));
+			this.comboBoxCategoria = global::Gtk.ComboBox.NewText ();
+			this.comboBoxCategoria.Name = "comboBoxCategoria";
+			this.table1.Add (this.comboBoxCategoria);
+			global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table1 [this.comboBoxCategoria]));
 			w3.TopAttach = ((uint)(2));
 			w3.BottomAttach = ((uint)(3));
 			w3.LeftAttach = ((uint)(1));
@@ -104,15 +104,15 @@ namespace PArticulo
 			w7.XOptions = ((global::Gtk.AttachOptions)(4));
 			w7.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table1.Gtk.Table+TableChild
-			this.spinbutton1 = new global::Gtk.SpinButton (0, 1000000, 1);
-			this.spinbutton1.CanFocus = true;
-			this.spinbutton1.Name = "spinbutton1";
-			this.spinbutton1.Adjustment.PageIncrement = 10;
-			this.spinbutton1.ClimbRate = 1;
-			this.spinbutton1.Digits = ((uint)(2));
-			this.spinbutton1.Numeric = true;
-			this.table1.Add (this.spinbutton1);
-			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1 [this.spinbutton1]));
+			this.spinButtonPrecio = new global::Gtk.SpinButton (0, 1000000, 1);
+			this.spinButtonPrecio.CanFocus = true;
+			this.spinButtonPrecio.Name = "spinButtonPrecio";
+			this.spinButtonPrecio.Adjustment.PageIncrement = 10;
+			this.spinButtonPrecio.ClimbRate = 1;
+			this.spinButtonPrecio.Digits = ((uint)(2));
+			this.spinButtonPrecio.Numeric = true;
+			this.table1.Add (this.spinButtonPrecio);
+			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1 [this.spinButtonPrecio]));
 			w8.TopAttach = ((uint)(1));
 			w8.BottomAttach = ((uint)(2));
 			w8.LeftAttach = ((uint)(1));
