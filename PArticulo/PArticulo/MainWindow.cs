@@ -81,19 +81,10 @@ public partial class MainWindow: Gtk.Window
 			
 			IDbCommand dbUpdateCommand = dbConnection.CreateCommand ();
 			dbUpdateCommand.CommandText = "update articulo set nombre=:nombre, precio=:precio where id=:id";
-			IDbDataParameter nombreParameter = dbUpdateCommand.CreateParameter ();
-			IDbDataParameter precioParameter = dbUpdateCommand.CreateParameter ();
-			IDbDataParameter idParameter = dbUpdateCommand.CreateParameter ();
-			nombreParameter.ParameterName = "nombre";
-			precioParameter.ParameterName = "precio";
-			idParameter.ParameterName = "id";
-			dbUpdateCommand.Parameters.Add (nombreParameter);
-			dbUpdateCommand.Parameters.Add (precioParameter);
-			dbUpdateCommand.Parameters.Add (idParameter);
 			
-			nombreParameter.Value = articuloView.Nombre;
-			precioParameter.Value = articuloView.Precio;
-			idParameter.Value = id;
+			AddParameter (dbUpdateCommand, "nombre", articuloView.Nombre);
+			AddParameter (dbUpdateCommand, "precio", articuloView.Precio);
+			AddParameter (dbUpdateCommand, "id", id);
 			
 //			Si usamos sustitución de cadenas tendremos problemas con:
 //			los "'" en los string, las "," en los decimal y el formato de las fechas
@@ -113,5 +104,13 @@ public partial class MainWindow: Gtk.Window
 		
 		ListStore listStore = (ListStore)treeView.Model;
 		return long.Parse (listStore.GetValue (treeIter, 0).ToString ()); 
+	}
+	
+	public static void AddParameter(IDbCommand dbCommand, string name, object value)
+	{
+		IDbDataParameter dbDataParameter = dbCommand.CreateParameter();
+		dbDataParameter.ParameterName = name;
+		dbDataParameter.Value = value;
+		dbCommand.Parameters.Add (dbDataParameter);
 	}
 }
