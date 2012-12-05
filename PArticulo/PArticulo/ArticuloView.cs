@@ -11,11 +11,13 @@ namespace PArticulo
 		}
 		
 		public string Nombre { 
+			get {return entryNombre.Text;}
 			set {entryNombre.Text = value;} 
 		}
 		
-		public double Precio {
-			set {spinButtonPrecio.Value = value;}
+		public decimal Precio {
+			get {return Convert.ToDecimal (spinButtonPrecio.Value);}
+			set {spinButtonPrecio.Value = Convert.ToDouble(value);}
 		}
 		
 		public long Categoria {
@@ -23,8 +25,10 @@ namespace PArticulo
 				//TODO implementar...
 			}
 		}
-				
 		
+		public Gtk.Action SaveAction {
+			get {return saveAction;}
+		}
 	}
 }
 

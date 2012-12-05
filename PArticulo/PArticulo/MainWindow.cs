@@ -70,12 +70,41 @@ public partial class MainWindow: Gtk.Window
 		
 		ArticuloView articuloView = new ArticuloView();
 		articuloView.Nombre = (string)dataReader["nombre"];
-		articuloView.Precio = double.Parse (dataReader["precio"].ToString ());
+		articuloView.Precio = (decimal)dataReader["precio"];
 		
 		articuloView.Show ();
 		
 		dataReader.Close ();
-		
+
+		articuloView.SaveAction.Activated += delegate {
+			Console.WriteLine("articuloView.SaveAction.Activated");
+			
+			IDbCommand dbUpdateCommand = dbConnection.CreateCommand ();
+			dbUpdateCommand.CommandText = "update articulo set nombre=:nombre, precio=:precio where id=:id";
+			IDbDataParameter nombreParameter = dbUpdateCommand.CreateParameter ();
+			IDbDataParameter precioParameter = dbUpdateCommand.CreateParameter ();
+			IDbDataParameter idParameter = dbUpdateCommand.CreateParameter ();
+			nombreParameter.ParameterName = "nombre";
+			precioParameter.ParameterName = "precio";
+			idParameter.ParameterName = "id";
+			dbUpdateCommand.Parameters.Add (nombreParameter);
+			dbUpdateCommand.Parameters.Add (precioParameter);
+			dbUpdateCommand.Parameters.Add (idParameter);
+			
+			nombreParameter.Value = articuloView.Nombre;
+			precioParameter.Value = articuloView.Precio;
+			idParameter.Value = id;
+			
+//			Si usamos sustitución de cadenas tendremos problemas con:
+//			los "'" en los string, las "," en los decimal y el formato de las fechas
+//			dbUpdateCommand.CommandText = 
+//				String.Format ("update articulo set nombre='{0}', precio={1} where id={2}", 
+//				               articuloView.Nombre, articuloView.Precio, id);
+
+			dbUpdateCommand.ExecuteNonQuery ();
+			
+			articuloView.Destroy ();
+		};
 	}
 	
 	private long getSelectedId() {
